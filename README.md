@@ -33,12 +33,12 @@ Demonstrates layered architecture with **Entity, Repository (DAO), DTO, Service,
 | Layer              | Responsibility |
 |--------------------|----------------|
 | **Entity**         | Defines database tables using JPA annotations (e.g., `Student`, `Course`). |
-| **Repository (DAO)** | Interfaces extending `JpaRepository` or `CrudRepository` for database operations. Abstracts persistence logic. |
+| **DAO Layer**      | Traditional Data Access Objects. Encapsulates custom SQL queries or complex persistence logic beyond simple CRUD. Often used when JPA repositories are insufficient. |
+| **Repository Layer** | Spring Data abstraction (`JpaRepository`, `CrudRepository`). Provides ready‑made CRUD operations and query methods without boilerplate code. |
 | **DTO**            | Data Transfer Objects for clean API request/response handling. |
-| **Service**        | Contains business logic, interacts with Repository, returns DTOs. |
+| **Service**        | Contains business logic, interacts with DAO/Repository, returns DTOs. |
 | **Controller**     | REST endpoints (`@RestController`) exposing APIs to clients. |
 | **Exception**      | Centralized error handling with custom exceptions and `@ControllerAdvice`. |
-
 ---
 
 ## 📌 API Endpoints (Examples)
