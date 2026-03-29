@@ -1,0 +1,21 @@
+package com.lpu.DAO;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.lpu.Entity.Student;
+import com.lpu.Repository.StudentRepository;
+
+@Repository
+public class StudentDAO {
+	@Autowired
+	private StudentRepository studentRepository;
+
+	public Student saveStudent(Student student) {
+		return studentRepository.save(student);
+	}
+
+	public Student getById(int id) {
+		return studentRepository.findById(id).orElse(null);
+	}
+}
